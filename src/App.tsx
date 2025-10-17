@@ -7,6 +7,8 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Activities from "./pages/Activities";
+import AgafayActivities from "./pages/AgafayActivities";
+import PalmeraieActivities from "./pages/PalmeraieActivities";
 import Tours from "./pages/Tours";
 import Transportation from "./pages/Transportation";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -29,6 +31,8 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/activities" element={<Activities />} />
+            <Route path="/activities/agafay" element={<AgafayActivities />} />
+            <Route path="/activities/palmeraie" element={<PalmeraieActivities />} />
             <Route path="/tours" element={<Tours />} />
             <Route path="/transportation" element={<Transportation />} />
             <Route path="/service/:id" element={<ServiceDetail />} />

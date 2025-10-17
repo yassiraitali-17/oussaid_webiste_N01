@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ServiceCard from '@/components/ServiceCard';
+import CategoryCard from '@/components/CategoryCard';
 import { getServicesByCategory } from '@/data/services';
+import agafayHero from '@/assets/agafay-hero.jpg';
+import palmeraieHero from '@/assets/palmeraie-hero.jpg';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -41,10 +44,19 @@ const Services = () => {
             </TabsContent>
 
             <TabsContent value="activities" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {activities.map((service) => (
-                  <ServiceCard key={service.id} service={service} />
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <CategoryCard 
+                  title="Agafay"
+                  subtitle="Agafay Desert Adventures — Quad, Camel rides, Dinner show"
+                  image={agafayHero}
+                  link="/activities/agafay"
+                />
+                <CategoryCard 
+                  title="Palmeraie"
+                  subtitle="Palmeraie Oasis — Quad biking, Hot air balloon, Palm grove tours"
+                  image={palmeraieHero}
+                  link="/activities/palmeraie"
+                />
               </div>
             </TabsContent>
 

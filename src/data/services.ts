@@ -3,6 +3,7 @@ import placeholderImage from '@/assets/placeholder.webp';
 export interface Service {
   id: string;
   category: 'activity' | 'tour' | 'transportation';
+  subcategory?: 'agafay' | 'palmeraie' | string;
   title: string;
   description: string;
   shortDescription: string;
@@ -19,6 +20,7 @@ export const services: Service[] = [
   {
     id: 'quad-biking-palm-grove',
     category: 'activity',
+    subcategory: 'palmeraie',
     title: 'Quad Biking in Palm Grove',
     shortDescription: 'Thrilling desert adventure through Marrakech palm groves',
     description: 'Experience the thrill of quad biking through the stunning palm groves of Marrakech. Navigate through traditional Berber villages and enjoy breathtaking desert landscapes.',
@@ -31,6 +33,7 @@ export const services: Service[] = [
   {
     id: 'camel-riding-sunset',
     category: 'activity',
+    subcategory: 'agafay',
     title: 'Sunset Camel Ride',
     shortDescription: 'Magical sunset experience on camelback in the desert',
     description: 'Embark on a traditional camel ride through the desert as the sun sets, creating unforgettable memories against stunning Moroccan landscapes.',
@@ -43,6 +46,7 @@ export const services: Service[] = [
   {
     id: 'hot-air-balloon',
     category: 'activity',
+    subcategory: 'palmeraie',
     title: 'Hot Air Balloon Adventure',
     shortDescription: 'Soar above Marrakech at sunrise for breathtaking views',
     description: 'Float peacefully above the stunning landscapes of Marrakech and the Atlas Mountains in a hot air balloon at sunrise.',
@@ -136,6 +140,10 @@ export const getServicesByCategory = (category: 'activity' | 'tour' | 'transport
 
 export const getServiceById = (id: string) => {
   return services.find(service => service.id === id);
+};
+
+export const getServicesBySubcategory = (subcategory: string) => {
+  return services.filter(service => service.subcategory === subcategory);
 };
 
 export const getFeaturedServices = () => {

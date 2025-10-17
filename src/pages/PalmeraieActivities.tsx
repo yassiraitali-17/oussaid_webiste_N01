@@ -1,0 +1,41 @@
+import ServiceCard from '@/components/ServiceCard';
+import { getServicesBySubcategory } from '@/data/services';
+import palmeraieHero from '@/assets/palmeraie-hero.jpg';
+
+const PalmeraieActivities = () => {
+  const palmeraieServices = getServicesBySubcategory('palmeraie');
+
+  return (
+    <div className="min-h-screen pt-24">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${palmeraieHero})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+        <div className="relative h-full container mx-auto px-4 flex flex-col justify-end pb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            Palmeraie Oasis Adventures
+          </h1>
+          <p className="text-xl text-white/90 max-w-2xl">
+            Discover the lush palm groves with thrilling quad biking and hot air balloon experiences
+          </p>
+        </div>
+      </section>
+
+      {/* Activities Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {palmeraieServices.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default PalmeraieActivities;
