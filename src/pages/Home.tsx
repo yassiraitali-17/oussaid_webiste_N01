@@ -32,9 +32,9 @@ const Home = () => {
             Authentic tours, exciting activities, and reliable transportation with Oussaid Tourism
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/activities">
+            <Link to="/services">
               <Button variant="hero" size="lg">
-                View Activities
+                View Services
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
