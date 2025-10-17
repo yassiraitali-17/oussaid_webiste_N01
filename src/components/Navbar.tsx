@@ -36,11 +36,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 transition-transform hover:scale-105">
             <img src={logoIcon} alt="Oussaid Tourism Icon" className="h-12 w-auto" />
-            <div className={`flex flex-col leading-tight transition-colors ${
-              (isScrolled || !isHomePage) ? 'text-secondary' : 'text-white'
-            }`}>
-              <span className="text-2xl font-bold tracking-tight">OUSSAID</span>
-              <span className="text-sm font-medium tracking-widest">TOURISME</span>
+            <div className="flex flex-col leading-tight">
+              <span className={`text-2xl font-bold tracking-tight transition-colors ${
+                (isScrolled || !isHomePage) ? 'text-primary' : 'text-white'
+              }`}>OUSSAID</span>
+              <span className={`text-sm font-medium tracking-widest transition-colors ${
+                (isScrolled || !isHomePage) ? 'text-secondary' : 'text-white'
+              }`}>TOURISME</span>
             </div>
           </Link>
 
