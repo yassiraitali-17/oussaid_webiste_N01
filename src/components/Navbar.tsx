@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-secondary shadow-lg' : 'bg-white/95 backdrop-blur-sm shadow-md'
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -46,8 +46,8 @@ const Navbar = () => {
                   isActive(link.path)
                     ? 'text-primary'
                     : isScrolled
-                    ? 'text-white hover:text-primary'
-                    : 'text-secondary hover:text-primary'
+                    ? 'text-secondary hover:text-primary'
+                    : 'text-white hover:text-primary'
                 }`}
               >
                 {link.name}
@@ -61,7 +61,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 transition-colors ${
-              isScrolled ? 'text-white hover:text-primary' : 'text-foreground hover:text-primary'
+              isScrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'
             }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -71,44 +71,49 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation - Slide-in Sidebar */}
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <div 
-              className="fixed inset-0 bg-black/50 animate-fade-in md:hidden"
-              onClick={() => setIsOpen(false)}
-            />
-            
-            {/* Sidebar */}
-            <div className="fixed top-0 right-0 h-full w-64 bg-background shadow-xl animate-slide-in-right md:hidden">
-              <div className="flex justify-end p-4">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 text-foreground hover:text-primary transition-colors"
-                  aria-label="Close menu"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-              <div className="px-4 py-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`block py-4 font-medium transition-colors border-b border-border ${
-                      isActive(link.path)
-                        ? 'text-primary'
-                        : 'text-foreground hover:text-primary'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
+        <div className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}>
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 transition-opacity duration-300"
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Sidebar */}
+          <div className={`absolute top-0 right-0 h-full w-64 bg-background shadow-xl transition-transform duration-300 ease-out ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}>
+            <div className="flex justify-end p-4">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 text-foreground hover:text-primary transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
             </div>
-          </>
-        )}
+            <div className="px-4 py-2">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`block py-4 font-medium transition-all border-b border-border ${
+                    isActive(link.path)
+                      ? 'text-primary'
+                      : 'text-foreground hover:text-primary'
+                  }`}
+                  style={{
+                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                  }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );

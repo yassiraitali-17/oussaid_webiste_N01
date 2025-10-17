@@ -14,10 +14,12 @@ const Transportation = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {transportation.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            {transportation.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

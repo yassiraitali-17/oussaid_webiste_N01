@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Check, ArrowRight } from 'lucide-react';
 import { getServiceById } from '@/data/services';
+import ImageGallery from '@/components/ImageGallery';
 
 const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,32 +22,33 @@ const ServiceDetail = () => {
     );
   }
 
+  // Create an array of images (placeholder + multiple copies for demo)
+  const serviceImages = [
+    service.image,
+    service.image,
+    service.image,
+  ];
+
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4">
-        {/* Hero Image */}
-        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-12 shadow-elegant">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-            <div className="p-8">
-              <h1 className="text-5xl font-bold text-white mb-4">{service.title}</h1>
-              <div className="flex items-center gap-6 text-white">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  <span>{service.duration}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  <span>{service.location}</span>
-                </div>
-              </div>
+        {/* Title */}
+        <div className="mb-6">
+          <h1 className="text-5xl font-bold mb-4">{service.title}</h1>
+          <div className="flex items-center gap-6 text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5" />
+              <span>{service.duration}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5" />
+              <span>{service.location}</span>
             </div>
           </div>
         </div>
+
+        {/* Image Gallery */}
+        <ImageGallery images={serviceImages} title={service.title} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}

@@ -1,4 +1,5 @@
 import { Users, Award, Heart, Shield } from 'lucide-react';
+import placeholderImage from '@/assets/placeholder.webp';
 
 const About = () => {
   return (
@@ -42,7 +43,7 @@ const About = () => {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-elegant">
               <img
-                src="https://images.unsplash.com/photo-1579965342575-16428a7c8854?q=80&w=800"
+                src={placeholderImage}
                 alt="Marrakech medina"
                 className="w-full h-full object-cover"
               />
