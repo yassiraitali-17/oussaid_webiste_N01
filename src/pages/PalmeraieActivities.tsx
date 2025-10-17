@@ -10,16 +10,6 @@ const PalmeraieActivities = () => {
 
   return (
     <div className="min-h-screen pt-24">
-      {/* Back Navigation */}
-      <div className="container mx-auto px-4 py-6">
-        <Link to="/services">
-          <Button variant="ghost" className="gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Back to All Services
-          </Button>
-        </Link>
-      </div>
-
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
         <div 
@@ -37,8 +27,18 @@ const PalmeraieActivities = () => {
         </div>
       </section>
 
+      {/* Back Navigation */}
+      <div className="container mx-auto px-4 pt-12 pb-6">
+        <Link to="/services">
+          <Button variant="ghost" className="gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            Back to All Services
+          </Button>
+        </Link>
+      </div>
+
       {/* Activities Grid */}
-      <section className="py-16">
+      <section className="pb-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {palmeraieServices.map((service) => (

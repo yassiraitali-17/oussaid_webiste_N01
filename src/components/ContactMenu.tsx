@@ -8,12 +8,12 @@ const ContactMenu = () => {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      action: () => window.open('https://wa.me/212123456789', '_blank'),
+      action: () => window.open('https://wa.me/212707704981', '_blank'),
     },
     {
       icon: Phone,
       label: 'Call',
-      action: () => window.location.href = 'tel:+212123456789',
+      action: () => window.location.href = 'tel:+212707704981',
     },
     {
       icon: Mail,
