@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import logoIcon from '@/assets/logo-icon.png';
 
 const Navbar = () => {
@@ -72,6 +73,15 @@ const Navbar = () => {
                   }`} />
                 </Link>
               ))}
+              <Link to="/contact">
+                <Button 
+                  variant={(isScrolled || !isHomePage) ? "default" : "hero"}
+                  size="default"
+                  className="ml-4"
+                >
+                  Book Now
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -98,7 +108,7 @@ const Navbar = () => {
           />
           
           {/* Sliding Menu */}
-          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl ${
+          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl flex flex-col ${
             isOpen ? 'animate-slide-in-right' : 'animate-slide-out-right'
           }`}>
             {/* Header with Logo and Close Button */}
@@ -120,7 +130,7 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <nav className="px-4 py-6">
+            <nav className="px-4 py-6 flex-1">
               {navLinks.map((link, index) => (
                 <Link
                   key={link.path}
@@ -140,6 +150,15 @@ const Navbar = () => {
                 </Link>
               ))}
             </nav>
+
+            {/* Book Now Button in Mobile Menu */}
+            <div className="px-4 pb-6 border-t border-gray-200 pt-4">
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button variant="default" size="lg" className="w-full">
+                  Book Now
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

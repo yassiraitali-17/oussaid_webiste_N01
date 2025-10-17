@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import ServiceCard from '@/components/ServiceCard';
 import { getServicesBySubcategory } from '@/data/services';
 import palmeraieHero from '@/assets/palmeraie-hero.jpg';
@@ -7,6 +10,16 @@ const PalmeraieActivities = () => {
 
   return (
     <div className="min-h-screen pt-24">
+      {/* Back Navigation */}
+      <div className="container mx-auto px-4 py-6">
+        <Link to="/services">
+          <Button variant="ghost" className="gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            Back to All Services
+          </Button>
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
         <div 
