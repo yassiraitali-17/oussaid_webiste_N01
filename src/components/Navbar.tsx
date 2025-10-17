@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import logoIcon from '@/assets/logo-icon.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,8 +34,14 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center transition-transform hover:scale-105">
-            <img src={logo} alt="Oussaid Tourism" className="h-16 w-auto" />
+          <Link to="/" className="flex items-center gap-3 transition-transform hover:scale-105">
+            <img src={logoIcon} alt="Oussaid Tourism Icon" className="h-12 w-auto" />
+            <div className={`flex flex-col leading-tight transition-colors ${
+              (isScrolled || !isHomePage) ? 'text-secondary' : 'text-white'
+            }`}>
+              <span className="text-2xl font-bold tracking-tight">OUSSAID</span>
+              <span className="text-sm font-medium tracking-widest">TOURISME</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
