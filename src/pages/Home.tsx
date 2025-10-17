@@ -35,7 +35,7 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
             Discover the Magic of Marrakech
           </h1>
           <p className="text-xl md:text-2xl text-white/95 mb-8 drop-shadow-md">

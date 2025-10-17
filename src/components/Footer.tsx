@@ -20,6 +20,9 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Activities</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Tours</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Transportation</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
             </ul>
@@ -51,7 +54,7 @@ const Footer = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all hover:scale-110" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all hover:scale-110" aria-label="Instagram">
+              <a href="https://www.instagram.com/oussaid_tourisme/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all hover:scale-110" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all hover:scale-110" aria-label="Twitter">

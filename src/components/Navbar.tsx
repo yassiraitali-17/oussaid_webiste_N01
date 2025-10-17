@@ -26,9 +26,11 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : isHomePage ? 'bg-transparent' : 'bg-white/95 backdrop-blur-sm shadow-md'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -45,7 +47,7 @@ const Navbar = () => {
                 className={`font-medium transition-colors relative group ${
                   isActive(link.path)
                     ? 'text-primary'
-                    : isScrolled
+                    : (isScrolled || !isHomePage)
                     ? 'text-secondary hover:text-primary'
                     : 'text-white hover:text-primary'
                 }`}
@@ -61,7 +63,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 transition-colors ${
-              isScrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'
+              (isScrolled || !isHomePage) ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'
             }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
