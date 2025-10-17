@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -48,7 +48,7 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">Welcome to Oussaid Tourism</h2>
@@ -68,7 +68,7 @@ const Home = () => {
       </section>
 
       {/* Activities Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -91,7 +91,7 @@ const Home = () => {
       </section>
 
       {/* Tours Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -114,7 +114,7 @@ const Home = () => {
       </section>
 
       {/* Transportation Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -137,40 +137,18 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: 'Sarah Johnson',
-                location: 'United States',
-                text: 'An absolutely magical experience! The tour guides were knowledgeable and friendly. Highly recommend!',
-              },
-              {
-                name: 'Marco Rossi',
-                location: 'Italy',
-                text: 'Professional service from start to finish. The Sahara desert tour was the highlight of our trip.',
-              },
-              {
-                name: 'Emma Williams',
-                location: 'United Kingdom',
-                text: 'Oussaid Tourism made our Marrakech adventure unforgettable. Excellent value and amazing experiences!',
-              },
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg shadow-elegant">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4">"{testimonial.text}"</p>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                </div>
-              </div>
-            ))}
+          <h2 className="text-4xl font-bold text-center mb-8">What Our Clients Say</h2>
+          <div className="flex justify-center">
+            <Button 
+              variant="default" 
+              size="lg"
+              onClick={() => window.open('https://google.com', '_blank')}
+            >
+              <Star className="w-5 h-5 fill-current" />
+              Read Our Reviews on Google
+            </Button>
           </div>
         </div>
       </section>
