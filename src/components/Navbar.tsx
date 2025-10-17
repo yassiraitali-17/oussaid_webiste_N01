@@ -86,35 +86,49 @@ const Navbar = () => {
         }`}>
           {/* Backdrop */}
           <div 
-            className="absolute inset-0 bg-black/50 transition-opacity duration-300"
+            className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
+              isOpen ? 'opacity-100' : 'opacity-0'
+            }`}
             onClick={() => setIsOpen(false)}
           />
           
           {/* Sidebar */}
-          <div className={`absolute top-0 right-0 h-full w-64 bg-background shadow-xl transition-transform duration-300 ease-out ${
+          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-background shadow-2xl transition-transform duration-300 ease-out ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
-            <div className="flex justify-end p-4">
+            {/* Header with Logo and Close Button */}
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="flex items-center gap-3">
+                <img src={logoIcon} alt="Oussaid Tourism Icon" className="h-10 w-auto" />
+                <div className="flex flex-col leading-tight">
+                  <span className="text-xl font-bold tracking-tight text-primary">OUSSAID</span>
+                  <span className="text-xs font-medium tracking-widest text-secondary">TOURISME</span>
+                </div>
+              </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 text-foreground hover:text-primary transition-colors"
+                className="p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-muted"
                 aria-label="Close menu"
               >
                 <X size={24} />
               </button>
             </div>
-            <div className="px-4 py-2">
+
+            {/* Navigation Links */}
+            <div className="px-4 py-6">
               {navLinks.map((link, index) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block py-4 font-medium transition-all border-b border-border ${
+                  className={`block py-4 px-4 font-medium transition-all rounded-lg border-b border-border last:border-0 ${
                     isActive(link.path)
-                      ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
+                      ? 'text-primary bg-primary/5'
+                      : 'text-foreground hover:text-primary hover:bg-muted'
                   }`}
                   style={{
-                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
+                    opacity: isOpen ? 1 : 0,
+                    transform: isOpen ? 'translateX(0)' : 'translateX(20px)'
                   }}
                   onClick={() => setIsOpen(false)}
                 >
