@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 import Home from "./pages/Home";
+import Services from "./pages/Services";
 import Activities from "./pages/Activities";
 import AgafayActivities from "./pages/AgafayActivities";
 import PalmeraieActivities from "./pages/PalmeraieActivities";
@@ -47,6 +48,7 @@ const App = () => {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/activities" element={<Activities />} />
               <Route path="/activities/agafay" element={<AgafayActivities />} />
               <Route path="/activities/palmeraie" element={<PalmeraieActivities />} />

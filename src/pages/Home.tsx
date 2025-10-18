@@ -39,9 +39,9 @@ const Home = () => {
             Authentic tours, exciting activities, and reliable transportation with Oussaid Tourism
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/activities">
+            <Link to="/services">
               <Button variant="hero" size="lg">
-                Explore Activities
+                Explore Services
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
@@ -82,7 +82,7 @@ const Home = () => {
               <h2 className="text-4xl font-bold mb-2">Exciting Activities</h2>
               <p className="text-muted-foreground">Thrilling adventures in Agafay, Palmeraie, and beyond</p>
             </div>
-            <Link to="/activities">
+            <Link to="/services">
               <Button variant="outline">
                 View All
                 <ArrowRight className="w-4 h-4" />
