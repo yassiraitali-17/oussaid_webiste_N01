@@ -27,12 +27,11 @@ const AgafayActivities = () => {
         </div>
       </section>
 
-      {/* Back Navigation */}
       <div className="container mx-auto px-4 pt-12 pb-6">
-        <Link to="/services">
+        <Link to="/activities">
           <Button variant="ghost" className="gap-2">
             <ArrowLeft className="w-4 h-4" />
-            Back to All Services
+            Back to Activities
           </Button>
         </Link>
       </div>

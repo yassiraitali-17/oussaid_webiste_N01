@@ -8,13 +8,10 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
 import Activities from "./pages/Activities";
 import AgafayActivities from "./pages/AgafayActivities";
 import PalmeraieActivities from "./pages/PalmeraieActivities";
 import OtherActivities from "./pages/OtherActivities";
-import Tours from "./pages/Tours";
-import Transportation from "./pages/Transportation";
 import ServiceDetail from "./pages/ServiceDetail";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
@@ -50,13 +47,10 @@ const App = () => {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
               <Route path="/activities" element={<Activities />} />
               <Route path="/activities/agafay" element={<AgafayActivities />} />
               <Route path="/activities/palmeraie" element={<PalmeraieActivities />} />
               <Route path="/activities/other" element={<OtherActivities />} />
-              <Route path="/tours" element={<Tours />} />
-              <Route path="/transportation" element={<Transportation />} />
               <Route path="/service/:id" element={<ServiceDetail />} />
               <Route path="/checkout/:id" element={<Checkout />} />
               <Route path="/thank-you" element={<ThankYou />} />
