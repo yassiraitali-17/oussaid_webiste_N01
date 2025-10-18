@@ -16,10 +16,7 @@ const GoogleIcon = ({ className }: { className?: string }) => (
 );
 
 const Home = () => {
-  const featuredServices = getFeaturedServices();
-  const activities = getServicesByCategory('activity').slice(0, 3);
-  const tours = getServicesByCategory('tour').slice(0, 3);
-  const transportation = getServicesByCategory('transportation').slice(0, 3);
+  const activities = getServicesByCategory('activity').slice(0, 6);
 
   return (
     <div className="min-h-screen">
@@ -42,9 +39,9 @@ const Home = () => {
             Authentic tours, exciting activities, and reliable transportation with Oussaid Tourism
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/services">
+            <Link to="/activities">
               <Button variant="hero" size="lg">
-                View Services
+                Explore Activities
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
@@ -83,7 +80,7 @@ const Home = () => {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="text-4xl font-bold mb-2">Exciting Activities</h2>
-              <p className="text-muted-foreground">Thrilling adventures in the Moroccan landscape</p>
+              <p className="text-muted-foreground">Thrilling adventures in Agafay, Palmeraie, and beyond</p>
             </div>
             <Link to="/activities">
               <Button variant="outline">
@@ -95,52 +92,6 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((activity) => (
               <ServiceCard key={activity.id} service={activity} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tours Section */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-4xl font-bold mb-2">Guided Tours</h2>
-              <p className="text-muted-foreground">Explore Morocco's most beautiful destinations</p>
-            </div>
-            <Link to="/tours">
-              <Button variant="outline">
-                View All
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tours.map((tour) => (
-              <ServiceCard key={tour.id} service={tour} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Transportation Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-4xl font-bold mb-2">Transportation Services</h2>
-              <p className="text-muted-foreground">Comfortable and reliable travel solutions</p>
-            </div>
-            <Link to="/transportation">
-              <Button variant="outline">
-                View All
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {transportation.map((service) => (
-              <ServiceCard key={service.id} service={service} />
             ))}
           </div>
         </div>
