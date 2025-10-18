@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Activities from "./pages/Activities";
 import AgafayActivities from "./pages/AgafayActivities";
 import PalmeraieActivities from "./pages/PalmeraieActivities";
+import OtherActivities from "./pages/OtherActivities";
 import Tours from "./pages/Tours";
 import Transportation from "./pages/Transportation";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -53,6 +54,7 @@ const App = () => {
               <Route path="/activities" element={<Activities />} />
               <Route path="/activities/agafay" element={<AgafayActivities />} />
               <Route path="/activities/palmeraie" element={<PalmeraieActivities />} />
+              <Route path="/activities/other" element={<OtherActivities />} />
               <Route path="/tours" element={<Tours />} />
               <Route path="/transportation" element={<Transportation />} />
               <Route path="/service/:id" element={<ServiceDetail />} />

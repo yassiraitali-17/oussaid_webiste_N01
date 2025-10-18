@@ -1,9 +1,9 @@
-import ServiceCard from '@/components/ServiceCard';
-import { getServicesByCategory } from '@/data/services';
+import CategoryCard from '@/components/CategoryCard';
+import agafayHero from '@/assets/agafay-hero.jpg';
+import palmeraieHero from '@/assets/palmeraie-hero.jpg';
+import heroMarrakech from '@/assets/hero-marrakech.jpg';
 
 const Activities = () => {
-  const activities = getServicesByCategory('activity');
-
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4">
@@ -14,10 +14,25 @@ const Activities = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {activities.map((activity) => (
-            <ServiceCard key={activity.id} service={activity} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <CategoryCard 
+            title="Agafay"
+            subtitle="Agafay Desert Adventures — Quad, Camel rides, Dinner show"
+            image={agafayHero}
+            link="/activities/agafay"
+          />
+          <CategoryCard 
+            title="Palmeraie"
+            subtitle="Palmeraie Oasis — Quad biking, Hot air balloon, Palm grove tours"
+            image={palmeraieHero}
+            link="/activities/palmeraie"
+          />
+          <CategoryCard 
+            title="Other Activities"
+            subtitle="Adventure & exploration — Biking, Scooter, Paragliding, Hot Air Balloon"
+            image={heroMarrakech}
+            link="/activities/other"
+          />
         </div>
       </div>
     </div>
