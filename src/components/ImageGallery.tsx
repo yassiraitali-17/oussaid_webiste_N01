@@ -16,6 +16,17 @@ const ImageGallery = ({ images, title }: ImageGalleryProps) => {
     dragFree: true 
   });
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    const interval = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [emblaApi]);
+
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -98,7 +109,11 @@ const ImageGallery = ({ images, title }: ImageGalleryProps) => {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className="relative flex-[0_0_20%] min-w-[100px] h-20 rounded-lg overflow-hidden transition-all duration-300 opacity-70 hover:opacity-100 hover:scale-105"
+                className={`relative flex-[0_0_20%] min-w-[100px] h-20 rounded-lg overflow-hidden transition-all duration-300 ${
+                  selectedIndex === index 
+                    ? 'opacity-100 ring-2 ring-primary' 
+                    : 'opacity-70 hover:opacity-100 hover:scale-105'
+                }`}
               >
                 <img
                   src={image}
