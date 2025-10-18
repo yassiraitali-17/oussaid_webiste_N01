@@ -98,10 +98,10 @@ const ImageGallery = ({ images, title }: ImageGalleryProps) => {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className={`relative flex-[0_0_20%] min-w-[100px] h-20 rounded-lg overflow-hidden transition-all ${
+                className={`relative flex-[0_0_20%] min-w-[100px] h-20 rounded-lg overflow-hidden transition-all duration-300 ${
                   selectedIndex === index 
-                    ? 'border-l-4 border-primary scale-105' 
-                    : 'opacity-70 hover:opacity-100'
+                    ? 'scale-110 shadow-lg ring-2 ring-primary opacity-100' 
+                    : 'opacity-60 hover:opacity-90 hover:scale-105'
                 }`}
               >
                 <img
