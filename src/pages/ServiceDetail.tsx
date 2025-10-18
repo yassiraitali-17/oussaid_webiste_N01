@@ -1,11 +1,12 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Check, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Check, ArrowRight, ArrowLeft } from 'lucide-react';
 import { getServiceById } from '@/data/services';
-import ImageGallery from '@/components/ImageGallery';
+import MapItinerary from '@/components/MapItinerary';
 
 const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const service = getServiceById(id || '');
 
   if (!service) {
@@ -22,19 +23,24 @@ const ServiceDetail = () => {
     );
   }
 
-  // Create an array of images (placeholder + multiple copies for demo)
-  const serviceImages = [
-    service.image,
-    service.image,
-    service.image,
-  ];
-
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4">
-        {/* Title */}
+        {/* Back Navigation */}
         <div className="mb-6">
-          <h1 className="text-5xl font-bold mb-4">{service.title}</h1>
+          <Button 
+            variant="ghost" 
+            onClick={() => navigate(-1)}
+            className="gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Button>
+        </div>
+
+        {/* Title */}
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
           <div className="flex items-center gap-6 text-muted-foreground">
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5" />
@@ -47,33 +53,22 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {/* Image Gallery */}
-        <ImageGallery images={serviceImages} title={service.title} />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">About This Experience</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">{service.description}</p>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-4">What's Included</h2>
-              <ul className="space-y-3">
-                {service.inclusions.map((inclusion, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-lg">{inclusion}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Top Section: Image + Booking Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {/* Image */}
+          <div className="lg:col-span-2">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          {/* Booking Sidebar */}
+          {/* Booking Card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 bg-card border border-border rounded-2xl p-6 shadow-elegant">
+            <div className="bg-card border border-border rounded-2xl p-6 shadow-elegant sticky top-24">
               <div className="mb-6">
                 <div className="text-sm text-muted-foreground mb-2">From</div>
                 <div className="text-4xl font-bold text-primary">{service.price}</div>
@@ -102,6 +97,32 @@ const ServiceDetail = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">About This Experience</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">{service.description}</p>
+          </div>
+
+          {/* Map Itinerary */}
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Location & Itinerary</h2>
+            <MapItinerary location={service.location} title={service.title} />
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold mb-4">What's Included</h2>
+            <ul className="space-y-3">
+              {service.inclusions.map((inclusion, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <Check className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-lg">{inclusion}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
