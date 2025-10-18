@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Check, ArrowRight, ArrowLeft } from 'lucide-react';
 import { getServiceById } from '@/data/services';
 import MapItinerary from '@/components/MapItinerary';
+import ImageGallery from '@/components/ImageGallery';
 
 const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -55,15 +56,12 @@ const ServiceDetail = () => {
 
         {/* Top Section: Image + Booking Card */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Image */}
+          {/* Image Gallery */}
           <div className="lg:col-span-2">
-            <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <img 
-                src={service.image} 
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <ImageGallery 
+              images={service.gallery || [service.image]} 
+              title={service.title}
+            />
           </div>
 
           {/* Booking Card */}
@@ -109,8 +107,10 @@ const ServiceDetail = () => {
 
           {/* Map Itinerary */}
           <div>
-            <h2 className="text-3xl font-bold mb-4">Location & Itinerary</h2>
-            <MapItinerary location={service.location} title={service.title} />
+            <h2 className="text-3xl font-bold mb-6">Location & Itinerary</h2>
+            <div className="max-w-4xl">
+              <MapItinerary location={service.location} title={service.title} />
+            </div>
           </div>
 
           <div>
