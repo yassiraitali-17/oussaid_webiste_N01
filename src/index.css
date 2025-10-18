@@ -118,83 +118,119 @@ All colors MUST be HSL.
   }
 }
 
-/* Premium intro animation keyframes */
-@keyframes line-build {
-  0% {
-    transform: scale(0) translate(-50%, -50%);
-    opacity: 0;
+/* Premium cinematic intro animation keyframes */
+
+/* Golden ambient breathing effect */
+@keyframes golden-breathe {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
   }
-  60% {
-    transform: scale(1.03) translate(-50%, -50%);
+  50% {
     opacity: 1;
-  }
-  100% {
-    transform: scale(1) translate(-50%, -50%);
-    opacity: 1;
+    transform: scale(1.1);
   }
 }
 
+/* Geometric line drawing - magnetic precision */
+@keyframes line-draw {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-12deg);
+    filter: drop-shadow(0 0 20px hsl(182 54% 42% / 0));
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 20px hsl(182 54% 42% / 0.3));
+  }
+  70% {
+    transform: scale(1.03) rotate(0deg);
+    filter: drop-shadow(0 0 16px hsl(182 54% 42% / 0.25));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 12px hsl(182 54% 42% / 0.15));
+  }
+}
+
+/* Icon settle with subtle rotation and glow */
 @keyframes icon-settle {
   0% {
     transform: rotate(0deg) scale(1);
-    filter: drop-shadow(0 0 0 hsl(182 54% 42% / 0));
+    filter: drop-shadow(0 0 12px hsl(182 54% 42% / 0.15));
   }
-  40% {
-    transform: rotate(6deg) scale(1);
-    filter: drop-shadow(0 2px 8px hsl(182 54% 42% / 0.15));
+  30% {
+    transform: rotate(6deg) scale(1.02);
+    filter: drop-shadow(0 4px 16px hsl(182 54% 42% / 0.3));
+  }
+  60% {
+    transform: rotate(-2deg) scale(1);
+    filter: drop-shadow(0 2px 12px hsl(182 54% 42% / 0.25));
   }
   100% {
     transform: rotate(0deg) scale(1);
-    filter: drop-shadow(0 0 0 hsl(182 54% 42% / 0));
+    filter: drop-shadow(0 0 8px hsl(182 54% 42% / 0.2));
   }
 }
 
-@keyframes wordmark-rise {
+/* Golden shimmer reflection */
+@keyframes golden-shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(30%) scale(0.8);
+  }
+}
+
+/* Elegant wordmark rise with architectural confidence */
+@keyframes wordmark-elegant-rise {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+    letter-spacing: 0.12em;
+  }
+  60% {
+    transform: translateY(-2px);
+    opacity: 1;
+    letter-spacing: 0.06em;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* Subtitle elegant fade */
+@keyframes subtitle-elegant-fade {
   0% {
     transform: translateY(12px);
     opacity: 0;
-    letter-spacing: 0.04em;
-    filter: drop-shadow(0 4px 8px hsl(28 76% 56% / 0.2));
+    letter-spacing: 0.15em;
   }
   100% {
     transform: translateY(0);
     opacity: 1;
-    letter-spacing: normal;
-    filter: drop-shadow(0 0 0 hsl(28 76% 56% / 0));
+    letter-spacing: 0.25em;
   }
 }
 
-@keyframes subtitle-fade {
+/* Final lockup elevation - smooth ascent */
+@keyframes lockup-elevate {
   0% {
-    transform: translateY(8px);
-    opacity: 0;
-    letter-spacing: 0.02em;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-    letter-spacing: 0.08em;
-  }
-}
-
-@keyframes lockup-snap {
-  0% {
-    transform: scale(1.02);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-up-exit {
-  0% {
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(-24px);
+    transform: scale(0.95) translateY(-40px);
     opacity: 0;
   }
 }
