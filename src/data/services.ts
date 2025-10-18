@@ -29,6 +29,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Marrakech Palm Grove',
     inclusions: ['Professional guide', 'Safety equipment', 'Hotel pickup/drop-off', 'Refreshments'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'camel-riding-sunset',
@@ -42,6 +43,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Agafay Desert',
     inclusions: ['Experienced camel guide', 'Traditional tea ceremony', 'Hotel transfer', 'Sunset viewing'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'hot-air-balloon',
@@ -55,6 +57,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Marrakech Region',
     inclusions: ['Balloon flight', 'Berber breakfast', 'Flight certificate', 'Hotel pickup/drop-off'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 
   // Tours
@@ -69,6 +72,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Marrakech Medina',
     inclusions: ['Professional guide', 'Entrance fees', 'Traditional lunch', 'Hotel pickup/drop-off'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'sahara-desert-3-days',
@@ -81,6 +85,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Merzouga Desert',
     inclusions: ['4x4 transportation', 'Camel trek', 'Desert camp', 'All meals', 'Professional driver/guide'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'atlas-mountains-trek',
@@ -93,6 +98,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Atlas Mountains',
     inclusions: ['Mountain guide', 'Traditional lunch', 'Village visits', 'Hotel transfer'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'essaouira-day-trip',
@@ -105,6 +111,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Essaouira',
     inclusions: ['Comfortable transportation', 'Free time to explore', 'Seafood lunch option', 'Coastal views'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 
   // Transportation
@@ -119,6 +126,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Marrakech Airport',
     inclusions: ['Professional driver', 'Meet & greet', 'Air-conditioned vehicle', 'Luggage assistance'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
     id: 'city-to-city',
@@ -131,6 +139,7 @@ export const services: Service[] = [
     image: placeholderImage,
     location: 'Morocco Wide',
     inclusions: ['Professional driver', 'Air-conditioned vehicle', 'Flexible schedule', 'Rest stops'],
+    gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 ];
 
