@@ -117,3 +117,97 @@ All colors MUST be HSL.
     @apply font-semibold;
   }
 }
+
+/* Premium intro animation keyframes */
+@keyframes line-build {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.03) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes icon-settle {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 0 hsl(182 54% 42% / 0));
+  }
+  40% {
+    transform: rotate(6deg) scale(1);
+    filter: drop-shadow(0 2px 8px hsl(182 54% 42% / 0.15));
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 0 hsl(182 54% 42% / 0));
+  }
+}
+
+@keyframes wordmark-rise {
+  0% {
+    transform: translateY(12px);
+    opacity: 0;
+    letter-spacing: 0.04em;
+    filter: drop-shadow(0 4px 8px hsl(28 76% 56% / 0.2));
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    letter-spacing: normal;
+    filter: drop-shadow(0 0 0 hsl(28 76% 56% / 0));
+  }
+}
+
+@keyframes subtitle-fade {
+  0% {
+    transform: translateY(8px);
+    opacity: 0;
+    letter-spacing: 0.02em;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    letter-spacing: 0.08em;
+  }
+}
+
+@keyframes lockup-snap {
+  0% {
+    transform: scale(1.02);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up-exit {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes line-build,
+  @keyframes icon-settle,
+  @keyframes wordmark-rise,
+  @keyframes subtitle-fade,
+  @keyframes lockup-snap,
+  @keyframes slide-up-exit {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
