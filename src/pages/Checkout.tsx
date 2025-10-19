@@ -22,7 +22,20 @@ const Checkout = () => {
     date: '',
     persons: '1',
     message: '',
+    startDate: '',
+    endDate: '',
   });
+
+  const calculateDays = () => {
+    if (formData.startDate && formData.endDate) {
+      const start = new Date(formData.startDate);
+      const end = new Date(formData.endDate);
+      const diffTime = Math.abs(end.getTime() - start.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays;
+    }
+    return 0;
+  };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -40,19 +53,35 @@ const Checkout = () => {
     try {
       const formSubmitUrl = 'https://formsubmit.co/aitaliyassir55@gmail.com';
       
+      const bookingData = service?.isRental
+        ? {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            from: formData.startDate,
+            to: formData.endDate,
+            number_of_days: calculateDays(),
+            message: formData.message,
+            service: service?.title,
+            price: service?.price,
+            _subject: `New Rental Booking: ${service?.title}`,
+            _template: 'table',
+          }
+        : {
+            ...formData,
+            service: service?.title,
+            price: service?.price,
+            _subject: `New Booking: ${service?.title}`,
+            _template: 'table',
+          };
+
       const response = await fetch(formSubmitUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          service: service?.title,
-          price: service?.price,
-          _subject: `New Booking: ${service?.title}`,
-          _template: 'table',
-        }),
+        body: JSON.stringify(bookingData),
       });
 
       if (response.ok) {
@@ -154,42 +183,90 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="date">Preferred Date *</Label>
-                        <div className="relative">
-                          <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
-                          <Input
-                            id="date"
-                            name="date"
-                            type="date"
-                            value={formData.date}
-                            onChange={handleChange}
-                            className="pl-10"
-                            required
-                            min={new Date().toISOString().split('T')[0]}
-                          />
-                        </div>
-                      </div>
+                    {service?.isRental ? (
+                      <div className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="startDate">Start Date *</Label>
+                            <div className="relative">
+                              <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                              <Input
+                                id="startDate"
+                                name="startDate"
+                                type="date"
+                                value={formData.startDate}
+                                onChange={handleChange}
+                                className="pl-10"
+                                required
+                                min={new Date().toISOString().split('T')[0]}
+                              />
+                            </div>
+                          </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="persons">Number of Persons *</Label>
-                        <div className="relative">
-                          <Users className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
-                          <Input
-                            id="persons"
-                            name="persons"
-                            type="number"
-                            min="1"
-                            max="20"
-                            value={formData.persons}
-                            onChange={handleChange}
-                            className="pl-10"
-                            required
-                          />
+                          <div className="space-y-2">
+                            <Label htmlFor="endDate">End Date *</Label>
+                            <div className="relative">
+                              <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                              <Input
+                                id="endDate"
+                                name="endDate"
+                                type="date"
+                                value={formData.endDate}
+                                onChange={handleChange}
+                                className="pl-10"
+                                required
+                                min={formData.startDate || new Date().toISOString().split('T')[0]}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        {calculateDays() > 0 && (
+                          <div className="bg-primary/10 rounded-lg p-4">
+                            <div className="flex items-center justify-between">
+                              <span className="font-medium">Total Duration</span>
+                              <span className="text-lg font-bold text-primary">{calculateDays()} day{calculateDays() > 1 ? 's' : ''}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="date">Preferred Date *</Label>
+                          <div className="relative">
+                            <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                            <Input
+                              id="date"
+                              name="date"
+                              type="date"
+                              value={formData.date}
+                              onChange={handleChange}
+                              className="pl-10"
+                              required
+                              min={new Date().toISOString().split('T')[0]}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="persons">Number of Persons *</Label>
+                          <div className="relative">
+                            <Users className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                            <Input
+                              id="persons"
+                              name="persons"
+                              type="number"
+                              min="1"
+                              max="20"
+                              value={formData.persons}
+                              onChange={handleChange}
+                              className="pl-10"
+                              required
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
 
                     <div className="space-y-2">
                       <Label htmlFor="message">Special Requests or Notes</Label>

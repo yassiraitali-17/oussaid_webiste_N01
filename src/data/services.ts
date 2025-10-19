@@ -13,6 +13,12 @@ export interface Service {
   location: string;
   inclusions: string[];
   gallery?: string[];
+  priceVariants?: {
+    label: string;
+    price: string;
+    priceNumeric: number;
+  }[];
+  isRental?: boolean;
 }
 
 export const services: Service[] = [
@@ -260,32 +266,22 @@ export const services: Service[] = [
 
   // Other Activities
   {
-    id: 'hot-air-balloon-adult',
+    id: 'hot-air-balloon',
     category: 'activity',
     subcategory: 'other',
-    title: 'Hot Air Balloon (Adult)',
+    title: 'Hot Air Balloon',
     shortDescription: 'Peaceful sunrise flight with breakfast and certificate',
     description: 'Peaceful sunrise flight with 360° view, followed by breakfast and certificate.',
-    price: '€150 / 1500Dhs',
+    price: 'From €80 / 800Dhs',
     duration: '4 hours',
     image: placeholderImage,
     location: 'Marrakech Region',
     inclusions: ['Sunrise balloon flight', 'Breakfast', 'Flight certificate', 'Round-trip transport'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
-  },
-  {
-    id: 'hot-air-balloon-child',
-    category: 'activity',
-    subcategory: 'other',
-    title: 'Hot Air Balloon (Child -7 ans)',
-    shortDescription: 'Peaceful sunrise flight with breakfast and certificate',
-    description: 'Peaceful sunrise flight with 360° view, followed by breakfast and certificate.',
-    price: '€80 / 800Dhs',
-    duration: '4 hours',
-    image: placeholderImage,
-    location: 'Marrakech Region',
-    inclusions: ['Sunrise balloon flight', 'Breakfast', 'Flight certificate', 'Round-trip transport'],
-    gallery: [placeholderImage, placeholderImage, placeholderImage],
+    priceVariants: [
+      { label: 'Adult', price: '€150 / 1500Dhs', priceNumeric: 150 },
+      { label: 'Child (-7 years)', price: '€80 / 800Dhs', priceNumeric: 80 }
+    ],
   },
   {
     id: 'biking-tour',
@@ -314,6 +310,7 @@ export const services: Service[] = [
     location: 'Marrakech',
     inclusions: ['Bike rental', 'Safety equipment', 'Lock'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
+    isRental: true,
   },
   {
     id: 'scooter-rental',
@@ -328,12 +325,13 @@ export const services: Service[] = [
     location: 'Marrakech',
     inclusions: ['Scooter rental', 'Helmet', 'Insurance', 'City map'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
+    isRental: true,
   },
   {
     id: 'paragliding',
     category: 'activity',
     subcategory: 'other',
-    title: 'Paragliding (Parapente)',
+    title: 'Paragliding',
     shortDescription: 'Experience aerial views of Marrakech and the Atlas Mountains',
     description: 'Experience aerial views of Marrakech and the Atlas Mountains.',
     price: '€85',
