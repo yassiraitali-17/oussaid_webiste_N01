@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ServiceCard from '@/components/ServiceCard';
 import { services } from '@/data/services';
 import { Button } from '@/components/ui/button';
 
 const Services = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<'all' | 'activity' | 'tour' | 'transportation'>('all');
 
-  const filteredServices = activeFilter === 'all' 
-    ? services 
+  const filteredServices = activeFilter === 'all'
+    ? services
     : services.filter(service => service.category === activeFilter);
 
   return (
@@ -33,7 +35,7 @@ const Services = () => {
           <Button
             variant={activeFilter === 'activity' ? 'default' : 'outline'}
             size="lg"
-            onClick={() => setActiveFilter('activity')}
+            onClick={() => navigate('/activities')}
           >
             Activities
           </Button>
