@@ -1,16 +1,57 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ServiceCard from '@/components/ServiceCard';
+import CategoryCard from '@/components/CategoryCard';
 import { services } from '@/data/services';
 import { Button } from '@/components/ui/button';
+import agafayHero from '@/assets/agafay-hero.jpg';
+import palmeraieHero from '@/assets/palmeraie-hero.jpg';
+import heroMarrakech from '@/assets/hero-marrakech.jpg';
 
 const Services = () => {
-  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<'all' | 'activity' | 'tour' | 'transportation'>('all');
+  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
 
-  const filteredServices = activeFilter === 'all'
-    ? services
-    : services.filter(service => service.category === activeFilter);
+  const getFilteredServices = () => {
+    if (activeFilter === 'all') return services;
+    if (activeFilter === 'activity' && activeSubcategory) {
+      return services.filter(service =>
+        service.category === 'activity' && service.subcategory === activeSubcategory
+      );
+    }
+    return services.filter(service => service.category === activeFilter);
+  };
+
+  const filteredServices = getFilteredServices();
+
+  const handleFilterClick = (filter: 'all' | 'activity' | 'tour' | 'transportation') => {
+    setActiveFilter(filter);
+    setActiveSubcategory(null);
+  };
+
+  const handleSubcategoryClick = (subcategory: string) => {
+    setActiveSubcategory(subcategory);
+  };
+
+  const activitySubcategories = [
+    {
+      id: 'agafay',
+      title: 'Agafay',
+      subtitle: 'Agafay Desert Adventures — Quad, Camel rides, Dinner show',
+      image: agafayHero,
+    },
+    {
+      id: 'palmeraie',
+      title: 'Palmeraie',
+      subtitle: 'Palmeraie Oasis — Quad biking, Hot air balloon, Palm grove tours',
+      image: palmeraieHero,
+    },
+    {
+      id: 'other',
+      title: 'Other Activities',
+      subtitle: 'Adventure & exploration — Biking, Scooter, Paragliding, Hot Air Balloon',
+      image: heroMarrakech,
+    },
+  ];
 
   return (
     <div className="min-h-screen pt-24 pb-20">
@@ -28,42 +69,74 @@ const Services = () => {
           <Button
             variant={activeFilter === 'all' ? 'default' : 'outline'}
             size="lg"
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterClick('all')}
           >
             All Services
           </Button>
           <Button
             variant={activeFilter === 'activity' ? 'default' : 'outline'}
             size="lg"
-            onClick={() => navigate('/activities')}
+            onClick={() => handleFilterClick('activity')}
           >
             Activities
           </Button>
           <Button
             variant={activeFilter === 'tour' ? 'default' : 'outline'}
             size="lg"
-            onClick={() => setActiveFilter('tour')}
+            onClick={() => handleFilterClick('tour')}
           >
             Tours
           </Button>
           <Button
             variant={activeFilter === 'transportation' ? 'default' : 'outline'}
             size="lg"
-            onClick={() => setActiveFilter('transportation')}
+            onClick={() => handleFilterClick('transportation')}
           >
             Transportation
           </Button>
         </div>
 
+        {/* Activity Subcategories */}
+        {activeFilter === 'activity' && !activeSubcategory && (
+          <div className="mb-12 animate-in fade-in slide-in-from-top-4 duration-500">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {activitySubcategories.map((subcategory) => (
+                <div key={subcategory.id} onClick={() => handleSubcategoryClick(subcategory.id)}>
+                  <CategoryCard
+                    title={subcategory.title}
+                    subtitle={subcategory.subtitle}
+                    image={subcategory.image}
+                    link="#"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Back to Subcategories Button */}
+        {activeFilter === 'activity' && activeSubcategory && (
+          <div className="mb-8 text-center">
+            <Button
+              variant="outline"
+              onClick={() => setActiveSubcategory(null)}
+            >
+              ← Back to Activity Categories
+            </Button>
+          </div>
+        )}
+
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
+        {(activeFilter !== 'activity' || activeSubcategory) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
+            {filteredServices.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        )}
 
         {/* Empty State */}
-        {filteredServices.length === 0 && (
+        {filteredServices.length === 0 && (activeFilter !== 'activity' || activeSubcategory) && (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">No services found in this category.</p>
           </div>
