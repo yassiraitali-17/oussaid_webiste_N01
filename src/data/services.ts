@@ -34,7 +34,7 @@ export const services: Service[] = [
     duration: 'Full experience',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h quad ride', '30min camel ride', 'Dinner & show', 'Pool access', 'Round-trip transport'],
+    inclusions: ['1h quad ride', '30min camel ride', 'Dinner & show', 'Pool access', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -48,7 +48,7 @@ export const services: Service[] = [
     duration: '4 hours',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h quad ride', 'Dinner & show', 'Round-trip transport'],
+    inclusions: ['1h quad ride', 'Dinner & show', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -62,7 +62,7 @@ export const services: Service[] = [
     duration: '3 hours',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['30min camel ride', 'Dinner & show', 'Round-trip transport'],
+    inclusions: ['30min camel ride', 'Dinner & show', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -76,7 +76,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -90,7 +90,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -104,7 +104,7 @@ export const services: Service[] = [
     duration: '2 hours',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['2h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['2h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -118,7 +118,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h buggy ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h buggy ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -132,7 +132,7 @@ export const services: Service[] = [
     duration: '30 minutes',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['30min camel ride', 'Round-trip transport'],
+    inclusions: ['30min camel ride', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -146,7 +146,7 @@ export const services: Service[] = [
     duration: '3 hours',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['Traditional dinner', 'Live show', 'Fire performance', 'Round-trip transport'],
+    inclusions: ['Traditional dinner', 'Live show', 'Fire performance', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -160,7 +160,7 @@ export const services: Service[] = [
     duration: 'Overnight',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['Dinner', 'Breakfast', 'Private tent', 'Round-trip transport'],
+    inclusions: ['Dinner', 'Breakfast', 'Private tent', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -174,7 +174,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Agafay Desert',
-    inclusions: ['1h horse ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h horse ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 
@@ -190,7 +190,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['1h camel ride', 'Round-trip transport'],
+    inclusions: ['1h camel ride', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -204,7 +204,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -218,7 +218,7 @@ export const services: Service[] = [
     duration: '2 hours',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['2h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['2h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -232,7 +232,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h quad ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -246,7 +246,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['1h buggy ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h buggy ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -260,7 +260,7 @@ export const services: Service[] = [
     duration: '1 hour',
     image: placeholderImage,
     location: 'Marrakech Palmeraie',
-    inclusions: ['1h horse ride', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['1h horse ride', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 
@@ -276,7 +276,7 @@ export const services: Service[] = [
     duration: '4 hours',
     image: placeholderImage,
     location: 'Marrakech Region',
-    inclusions: ['Sunrise balloon flight', 'Breakfast', 'Flight certificate', 'Round-trip transport'],
+    inclusions: ['Sunrise balloon flight', 'Breakfast', 'Flight certificate', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
     priceVariants: [
       { label: 'Adult', price: '€150 / 1500Dhs', priceNumeric: 150 },
@@ -294,7 +294,7 @@ export const services: Service[] = [
     duration: '3 hours',
     image: placeholderImage,
     location: 'Marrakech Region',
-    inclusions: ['Professional guide', 'Bike rental', 'Safety equipment', 'Round-trip transport'],
+    inclusions: ['Professional guide', 'Bike rental', 'Safety equipment', 'Round-trip transport', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
   {
@@ -338,7 +338,7 @@ export const services: Service[] = [
     duration: '30 minutes flight',
     image: placeholderImage,
     location: 'Atlas Mountains',
-    inclusions: ['Professional pilot', 'Safety equipment', 'Round-trip transport', 'Photos & video'],
+    inclusions: ['Professional pilot', 'Safety equipment', 'Round-trip transport', 'Photos & video', 'Photos stop'],
     gallery: [placeholderImage, placeholderImage, placeholderImage],
   },
 

@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getServiceById } from '@/data/services';
-import { Calendar, Users, Mail, Phone, User } from 'lucide-react';
+import { Calendar, Users, Mail, Phone, User, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Checkout = () => {
@@ -122,6 +122,14 @@ const Checkout = () => {
     <div className="min-h-screen pt-24 pb-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          <Button
+            variant="ghost"
+            onClick={() => navigate(-1)}
+            className="mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back
+          </Button>
           <h1 className="text-4xl font-bold mb-8">Complete Your Booking</h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
